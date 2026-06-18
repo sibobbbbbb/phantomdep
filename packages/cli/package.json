@@ -1,0 +1,44 @@
+{
+  "name": "@phantomdep/cli",
+  "version": "0.1.0",
+  "description": "PhantomDep CLI — install-guard and lockfile scanner",
+  "license": "MIT",
+  "author": "Farhan Raditya Aji",
+  "homepage": "https://github.com/sibobbbbbb/phantomdep#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sibobbbbbb/phantomdep.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/sibobbbbbb/phantomdep/issues"
+  },
+  "keywords": ["slopsquatting", "supply-chain", "security", "cli", "npm", "pypi", "install-guard"],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "phantomdep": "./dist/bin.js"
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "prepublishOnly": "tsc --build"
+  },
+  "dependencies": {
+    "@phantomdep/core": "workspace:*",
+    "cross-spawn": "^7.0.6"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.6"
+  }
+}

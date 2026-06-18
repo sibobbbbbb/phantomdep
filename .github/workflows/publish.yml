@@ -1,0 +1,60 @@
+name: Publish
+
+# Publishes all public @phantomdep/* packages to npm.
+#
+# Real publish is triggered by pushing a version tag (e.g. `git tag v0.1.0 &&
+# git push origin v0.1.0`). You can also run it manually from the Actions tab:
+# leave `dry_run` = true (default) to preview without publishing, or set it to
+# false to publish the versions currently committed in each package.json.
+#
+# Requires the repo secret NPM_TOKEN (an npm automation token for the
+# `phantomdep` org). publishConfig.access=public in each package.json makes the
+# scoped packages public on the free org tier.
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run only (no actual publish)"
+        type: boolean
+        default: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          # Writes ~/.npmrc wired to read the token from NODE_AUTH_TOKEN.
+          registry-url: "https://registry.npmjs.org"
+
+      - run: pnpm install --frozen-lockfile
+
+      # Gate: never publish a broken build.
+      - run: pnpm build
+      - run: pnpm typecheck
+      - run: pnpm test
+
+      # Preview the exact tarball contents for every package.
+      - name: Pack preview (dry run)
+        run: pnpm -r publish --dry-run --no-git-checks
+
+      # Real publish. pnpm publishes workspace packages in dependency order and
+      # rewrites `workspace:*` to the concrete published version, so the npm
+      # tarballs depend on real versions, not "workspace:*". Already-published
+      # versions are skipped, so re-running a tag is safe.
+      - name: Publish to npm
+        if: github.event_name == 'push' || github.event.inputs.dry_run == 'false'
+        run: pnpm -r publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

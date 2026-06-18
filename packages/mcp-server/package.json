@@ -1,0 +1,42 @@
+{
+  "name": "@phantomdep/mcp-server",
+  "version": "0.1.0",
+  "description": "PhantomDep MCP server — context-frugal slopsquatting guard for AI agents",
+  "license": "MIT",
+  "author": "Farhan Raditya Aji",
+  "homepage": "https://github.com/sibobbbbbb/phantomdep#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sibobbbbbb/phantomdep.git",
+    "directory": "packages/mcp-server"
+  },
+  "bugs": {
+    "url": "https://github.com/sibobbbbbb/phantomdep/issues"
+  },
+  "keywords": ["slopsquatting", "mcp", "model-context-protocol", "security", "ai-agent", "npm", "pypi"],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "phantomdep-mcp": "./dist/bin.js"
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "prepublishOnly": "tsc --build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "@phantomdep/core": "workspace:*",
+    "zod": "^3.24.1"
+  }
+}

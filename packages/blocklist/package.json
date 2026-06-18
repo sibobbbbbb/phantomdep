@@ -1,0 +1,35 @@
+{
+  "name": "@phantomdep/blocklist",
+  "version": "0.1.0",
+  "description": "Curated hallucinated-package-name blocklist for PhantomDep",
+  "license": "MIT",
+  "author": "Farhan Raditya Aji",
+  "homepage": "https://github.com/sibobbbbbb/phantomdep#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sibobbbbbb/phantomdep.git",
+    "directory": "packages/blocklist"
+  },
+  "bugs": {
+    "url": "https://github.com/sibobbbbbb/phantomdep/issues"
+  },
+  "keywords": ["slopsquatting", "blocklist", "supply-chain", "security", "npm", "pypi"],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "data", "README.md", "LICENSE"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "prepublishOnly": "tsc --build",
+    "update": "node ./dist/scripts/update.js"
+  }
+}

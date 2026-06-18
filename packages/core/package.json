@@ -1,0 +1,37 @@
+{
+  "name": "@phantomdep/core",
+  "version": "0.1.0",
+  "description": "PhantomDep detection engine — slopsquatting verdicts for package names",
+  "license": "MIT",
+  "author": "Farhan Raditya Aji",
+  "homepage": "https://github.com/sibobbbbbb/phantomdep#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sibobbbbbb/phantomdep.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/sibobbbbbb/phantomdep/issues"
+  },
+  "keywords": ["slopsquatting", "supply-chain", "security", "npm", "pypi", "dependencies"],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "prepublishOnly": "tsc --build"
+  },
+  "dependencies": {
+    "@phantomdep/blocklist": "workspace:*"
+  }
+}

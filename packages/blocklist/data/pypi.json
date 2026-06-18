@@ -1,0 +1,9 @@
+{
+  "ecosystem": "pypi",
+  "updated": "2026-06-16",
+  "entries": [
+    { "name": "flask-gpt-helper", "source": "research:slopsquat-2024", "note": "common LLM hallucination" },
+    { "name": "openai-utils-helper", "source": "community-report", "note": "hallucinated helper package" },
+    { "name": "requests-ai-sdk", "source": "research:slopsquat-2024", "note": "hallucinated" }
+  ]
+}
