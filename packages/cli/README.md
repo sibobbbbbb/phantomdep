@@ -1,4 +1,16 @@
-# @phantomdep/cli
+<!-- markdownlint-disable MD033 MD041 -->
+<div align="center">
+
+# 👻 @phantomdep/cli
+
+**Install-guard + lockfile scanner** — catch AI-hallucinated dependencies before they install.
+
+[![npm version](https://img.shields.io/npm/v/@phantomdep/cli?color=cb3837&logo=npm)](https://www.npmjs.com/package/@phantomdep/cli)
+[![npm downloads](https://img.shields.io/npm/dm/@phantomdep/cli?color=cb3837)](https://www.npmjs.com/package/@phantomdep/cli)
+[![CI](https://github.com/sibobbbbbb/phantomdep/actions/workflows/ci.yml/badge.svg)](https://github.com/sibobbbbbb/phantomdep/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/@phantomdep/cli?color=blue)](LICENSE)
+
+</div>
 
 The PhantomDep install-guard and lockfile scanner — verify dependency names **before** they
 are installed, at the execution boundary. Part of

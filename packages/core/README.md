@@ -1,4 +1,16 @@
-# @phantomdep/core
+<!-- markdownlint-disable MD033 MD041 -->
+<div align="center">
+
+# 👻 @phantomdep/core
+
+**The detection engine behind PhantomDep** — slopsquatting verdicts for package names.
+
+[![npm version](https://img.shields.io/npm/v/@phantomdep/core?color=cb3837&logo=npm)](https://www.npmjs.com/package/@phantomdep/core)
+[![npm downloads](https://img.shields.io/npm/dm/@phantomdep/core?color=cb3837)](https://www.npmjs.com/package/@phantomdep/core)
+[![CI](https://github.com/sibobbbbbb/phantomdep/actions/workflows/ci.yml/badge.svg)](https://github.com/sibobbbbbb/phantomdep/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/@phantomdep/core?color=blue)](LICENSE)
+
+</div>
 
 The detection engine behind [PhantomDep](https://github.com/sibobbbbbb/phantomdep) — a
 privacy-first, zero-infra guard against **slopsquatting** (AI-hallucinated dependency)
